@@ -1,6 +1,6 @@
 #include "encoder.h"
 
-#define DEBUG   1
+#define DEBUG   0
 
 void write_header(FILE * file, SDL_Surface * surface)
 {
@@ -165,11 +165,11 @@ void encode_image(FILE * file, int width, int height, Uint32 * pixels, SDL_Pixel
 
             uint8_t dr_dg = dr - dg + 8;
             uint8_t db_dg = db - dg + 8;
-            dr += 30; // bias of 32 for dr
+            dg += 30; // bias of 32 for dr
             
-            if (dr < 64 && dr_dg < 16 && db_dg < 16)
+            if (dg < 64 && dr_dg < 16 && db_dg < 16)
             {
-                write_luma(file, dr, dr_dg, db_dg);
+                write_luma(file, dg, dr_dg, db_dg);
                 continue;
             }
 
