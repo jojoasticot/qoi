@@ -9,4 +9,3 @@ main: $(OBJECTS)
 clean:
 	rm *.[od]
 	rm main
-	rm test
