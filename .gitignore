@@ -3,3 +3,5 @@
 **/main
 # trash vscode folder
 /.vscode
+# test images
+/qoi_test_images
