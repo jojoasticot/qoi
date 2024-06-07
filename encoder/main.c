@@ -13,9 +13,9 @@ int main(int argc, char* argv[])
     SDL_Surface * surface = IMG_Load(argv[1]);
     SDL_Surface * new_surface = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGBA8888, 0);
     surface = new_surface;
-    /* printf("width: %i, height: %i\n", surface->w, surface->h); */
+    // printf("width: %i, height: %i\n", surface->w, surface->h);
 
-    FILE * f = fopen("test", "w");
+    FILE * f = fopen("test.qoi", "w");
     write_header(f, surface);
     SDL_LockSurface(surface);
     encode_image(f, surface->w, surface->h, (Uint32 *) surface->pixels, surface->format);

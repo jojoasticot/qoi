@@ -1,2 +1,5 @@
 # executables
 **/*.o
+**/main
+# trash vscode folder
+/.vscode

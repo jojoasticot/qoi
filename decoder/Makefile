@@ -4,7 +4,7 @@ LDLIBS = -lSDL2 -lSDL2_image -lm
 
 OBJECTS = decoder.o
 
-main: main $(OBJECTS)
+main: $(OBJECTS)
 
 clean:
 	rm *.[od]

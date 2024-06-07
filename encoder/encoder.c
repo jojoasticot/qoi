@@ -116,7 +116,7 @@ void encode_image(FILE * file, int width, int height, Uint32 * pixels, SDL_Pixel
             if (DEBUG)
                 printf("x: %i, y: %i; ", x, y);
             if (DEBUG)
-                printf("prev: %u, %u, %u, %u; cur = %u, %u, %u, %u\n", p_r, p_g, p_b, p_a, r, g, b, a);
+                printf("prev: %u, %u, %u, %u (%8X); cur = %u, %u, %u, %u (%8X)\n", p_r, p_g, p_b, p_a, prev, r, g, b, a, pixel);
             uint8_t index = (r * 3 + g * 5 + b * 7 + a * 11) % 64;
 
             if (prev == pixel)
@@ -165,7 +165,7 @@ void encode_image(FILE * file, int width, int height, Uint32 * pixels, SDL_Pixel
 
             uint8_t dr_dg = dr - dg + 8;
             uint8_t db_dg = db - dg + 8;
-            dg += 30; // bias of 32 for dr
+            dg += 30; // bias of 32 for dg
             
             if (dg < 64 && dr_dg < 16 && db_dg < 16)
             {
